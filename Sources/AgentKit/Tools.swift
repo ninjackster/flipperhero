@@ -45,6 +45,7 @@ public enum ToolInvocation: Sendable, Equatable {
     case getAppSettings
     case setReadAloud(Bool)
     case setAutoConnect(Bool)
+    case setUsageAnalytics(Bool)
     case setYoloMode(Bool)
     case setYoloAsksAfterReading(Bool)
     case setAutoApproveMedium(Bool)
@@ -101,6 +102,7 @@ public enum ToolInvocation: Sendable, Equatable {
         case .getAppSettings: "get_app_settings"
         case .setReadAloud: "set_read_aloud"
         case .setAutoConnect: "set_auto_connect"
+        case .setUsageAnalytics: "set_usage_analytics"
         case .setYoloMode: "set_yolo_mode"
         case .setYoloAsksAfterReading: "set_yolo_asks_after_reading"
         case .setAutoApproveMedium: "set_auto_approve_medium"
@@ -172,6 +174,7 @@ public enum ToolInvocation: Sendable, Equatable {
         case .getAppSettings: L("Read the app settings")
         case .setReadAloud(let on): on ? L("Read replies aloud") : L("Stop reading replies aloud")
         case .setAutoConnect(let on): on ? L("Connect to the last Flipper on launch") : L("Stop connecting automatically on launch")
+        case .setUsageAnalytics(let on): on ? L("Share usage statistics") : L("Stop sharing usage statistics")
         case .setYoloMode(let on): on ? L("Turn on YOLO mode: changes, deletes and transmissions run without asking") : L("Turn off YOLO mode")
         case .setYoloAsksAfterReading(let on): on ? L("Ask again after reading Flipper content, even in YOLO mode") : L("Stop asking after reading Flipper content in YOLO mode")
         case .setAutoApproveMedium(let on): on ? L("Skip prompts for medium-risk actions") : L("Ask again for medium-risk actions")
@@ -223,7 +226,7 @@ public enum ToolInvocation: Sendable, Equatable {
     /// regardless of YOLO or auto-approve, because those are exactly what it would change.
     public var requiresExplicitConsent: Bool {
         switch self {
-        case .setYoloMode(true), .setAutoApproveMedium(true), .setYoloAsksAfterReading(false):
+        case .setYoloMode(true), .setAutoApproveMedium(true), .setYoloAsksAfterReading(false), .setUsageAnalytics(true):
             true
 #if !FLIPPERHERO_STORE
         case .setEngagementMode(true, _): true
@@ -320,6 +323,7 @@ public enum ToolInvocation: Sendable, Equatable {
         case "get_app_settings": self = .getAppSettings
         case "set_read_aloud": self = .setReadAloud(try bool("enabled"))
         case "set_auto_connect": self = .setAutoConnect(try bool("enabled"))
+        case "set_usage_analytics": self = .setUsageAnalytics(try bool("enabled"))
         case "set_yolo_mode": self = .setYoloMode(try bool("enabled"))
         case "set_yolo_asks_after_reading": self = .setYoloAsksAfterReading(try bool("enabled"))
         case "set_auto_approve_medium": self = .setAutoApproveMedium(try bool("enabled"))
@@ -556,6 +560,8 @@ public enum ToolCatalog {
                  parameters: object(["enabled": ("boolean", "true to read replies aloud")], required: ["enabled"])),
         ToolSpec(name: "set_auto_connect", description: "Turn connecting to the last Flipper on app launch on or off.",
                  parameters: object(["enabled": ("boolean", "true to auto-connect")], required: ["enabled"])),
+        ToolSpec(name: "set_usage_analytics", description: "Enable or disable optional Rybbit usage statistics. Enabling always requires explicit user consent. No chat, photos, files or API keys are tracked.",
+                 parameters: object(["enabled": ("boolean", "true to share usage statistics")], required: ["enabled"])),
         ToolSpec(name: "set_yolo_mode", description: "Turn YOLO mode on or off. Turning it on always shows the user a permission dialog; you cannot enable it yourself. Only offer it when the user asks about it or about fewer prompts.",
                  parameters: object(["enabled": ("boolean", "true to request YOLO mode")], required: ["enabled"])),
         ToolSpec(name: "set_yolo_asks_after_reading", description: "Whether YOLO mode still asks after you read content from the Flipper. Turning this off always needs the user's permission.",

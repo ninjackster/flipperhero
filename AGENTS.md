@@ -34,6 +34,7 @@ Current mapping, keep it up to date:
 | Settings: auto-connect, provider, model, regional API base URL | `set_auto_connect`, `set_ai_provider`, `set_model` |
 | Settings: model catalog, connection test | `list_models`, `test_model_connection` (uses a stored key; saving/removing keys remains credential-only UI) |
 | Settings: audit log | `get_audit_log` |
+| Settings: optional Rybbit usage statistics | `set_usage_analytics` (explicit consent before enabling); `get_app_settings` reports its state |
 | Settings: audit log report export | `generate_engagement_report` |
 | Settings: read the current values | `get_app_settings` |
 | Chat menu: read replies aloud | `set_read_aloud` |

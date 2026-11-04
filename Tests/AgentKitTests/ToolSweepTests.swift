@@ -38,6 +38,7 @@ final class ToolSweepTests: XCTestCase {
         ("get_app_settings", "{}"),
         ("set_read_aloud", #"{"enabled":true}"#),
         ("set_auto_connect", #"{"enabled":false}"#),
+        ("set_usage_analytics", #"{"enabled":false}"#),
         ("set_yolo_mode", #"{"enabled":false}"#),
         ("set_yolo_asks_after_reading", #"{"enabled":true}"#),
         ("set_auto_approve_medium", #"{"enabled":false}"#),

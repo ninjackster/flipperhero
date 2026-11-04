@@ -15,6 +15,7 @@ final class AppControlsBridge: AppControls {
     }
     func setReadAloud(_ enabled: Bool) async { model?.setSpeakReplies(enabled) }
     func setAutoConnect(_ enabled: Bool) async { UserDefaults.standard.set(enabled, forKey: AppModel.autoConnectKey) }
+    func setUsageAnalytics(_ enabled: Bool) async { model?.setUsageAnalytics(enabled) }
     func setYolo(_ enabled: Bool) async { model?.yolo = enabled }
     func setYoloAsksAfterReading(_ enabled: Bool) async { model?.yoloAsksAfterUntrusted = enabled }
     func setAutoApproveMedium(_ enabled: Bool) async { UserDefaults.standard.set(enabled, forKey: AppModel.autoApproveKey) }

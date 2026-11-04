@@ -1,13 +1,28 @@
 # FlipperHero Privacy Policy / Datenschutzerklärung
 
-Last updated / Stand: 15 October 2026
+Last updated / Stand: 4 November 2026
 
 ## English
 
 FlipperHero is published by anycast.io UG (haftungsbeschrankt). It has no
-FlipperHero account or login, no advertising, and no integrated analytics or
-crash-reporting service. The app does not send data to a FlipperHero backend.
+FlipperHero account or login, no advertising, and no crash-reporting service.
+Optional usage statistics go to our Rybbit service only when you enable them.
 Optional AI requests go to the provider you select, as described below.
+
+### Optional usage analytics
+
+“Share usage statistics” is off by default in Settings. When enabled, screen names,
+basic app-open and completed/failed agent-request events, app version and edition
+are sent over HTTPS to `https://stats.2342.dev`. iOS uses its own Rybbit project,
+separate from Android and the website. A random session ID exists only in memory
+and changes when the app process restarts or the setting changes. It is not an
+advertising or persistent device identifier. The service also receives your IP
+address and iOS version and may derive approximate location and device statistics.
+
+Analytics exclude chat text, photos, provider keys, model IDs, Flipper names,
+Bluetooth addresses, file paths, file contents, tool arguments and raw errors.
+Disable the setting at any time to stop future events. Debug builds do not send
+analytics. There is no advertising, cross-app tracking or analytics SDK.
 
 ### Data on your devices
 
@@ -70,10 +85,28 @@ app's App Store developer page.
 ## Deutsch
 
 FlipperHero wird von anycast.io UG (haftungsbeschrankt) veröffentlicht. Die App
-hat kein eigenes Benutzerkonto und keinen Login, keine Werbung und keine
-integrierten Dienste für Nutzungsanalyse oder Absturzberichte. Die App sendet
-keine Daten an ein FlipperHero-Backend. Optionale KI-Anfragen gehen an den von
+hat kein eigenes Benutzerkonto und keinen Login, keine Werbung und keinen
+Dienst für Absturzberichte. Optionale Nutzungsstatistiken gehen nur nach deiner
+Aktivierung an unseren Rybbit-Dienst. Optionale KI-Anfragen gehen an den von
 dir gewählten Anbieter, wie unten beschrieben.
+
+### Optionale Nutzungsstatistik
+
+„Nutzungsstatistik teilen“ ist in den Einstellungen standardmäßig ausgeschaltet.
+Nach dem Einschalten werden Bildschirmnamen, App-Starts, erfolgreiche oder
+fehlgeschlagene Agent-Anfragen sowie App-Version und Edition per HTTPS an
+`https://stats.2342.dev` gesendet. iOS hat ein eigenes Rybbit-Projekt, getrennt
+von Android und der Website. Eine zufällige Sitzungs-ID bleibt nur im
+Arbeitsspeicher und wechselt beim App-Neustart oder Ändern der Einstellung.
+Sie ist keine Werbe-ID und keine dauerhafte Gerätekennung. Der Dienst erhält
+auch deine IP-Adresse und iOS-Version und kann daraus ungefähre Standort- und
+Gerätestatistiken ableiten.
+
+Chat-Texte, Fotos, API-Schlüssel, Modell-IDs, Flipper-Namen, Bluetooth-Adressen,
+Dateipfade, Dateiinhalte, Werkzeugargumente und Fehlermeldungen werden nicht
+übertragen. Durch Ausschalten stoppst du weitere Ereignisse. Debug-Builds senden
+keine Analysedaten. Es gibt keine Werbung, kein appübergreifendes Tracking und
+kein Analyse-SDK.
 
 ### Daten auf deinen Geräten
 

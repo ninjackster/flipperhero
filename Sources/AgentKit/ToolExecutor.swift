@@ -360,6 +360,7 @@ public actor ToolExecutor {
             engagement_mode: \(s.engagementActive ? "armed (\(s.engagementSummary))" : "off")
             read_replies_aloud: \(s.readAloud)
             auto_connect_on_launch: \(s.autoConnect)
+            usage_analytics: \(s.usageAnalytics)
             model: \(s.model)
             ai_provider: \(s.provider)
             api_base_url: \(s.apiBaseURL)
@@ -375,6 +376,11 @@ public actor ToolExecutor {
             guard let appControls else { throw CatalogError.malformed }
             await appControls.setAutoConnect(on)
             return on ? "The app connects to the last Flipper on launch." : "Auto-connect is off."
+
+        case .setUsageAnalytics(let on):
+            guard let appControls else { throw CatalogError.malformed }
+            await appControls.setUsageAnalytics(on)
+            return on ? "Rybbit usage analytics are on." : "Rybbit usage analytics are off."
 
         case .setYoloMode(let on):
             guard let appControls else { throw CatalogError.malformed }

@@ -13,11 +13,12 @@ public struct AppSettingsSnapshot: Sendable, Equatable {
     public var apiBaseURL: String
     public var engagementActive: Bool
     public var engagementSummary: String
+    public var usageAnalytics: Bool
 
     public init(yolo: Bool, yoloAsksAfterReading: Bool, autoApproveMedium: Bool, readAloud: Bool,
                 autoConnect: Bool, model: String, apiKeyStored: Bool,
                 provider: String = "openrouter", apiBaseURL: String = "https://openrouter.ai/api/v1",
-                engagementActive: Bool = false, engagementSummary: String = "off") {
+                engagementActive: Bool = false, engagementSummary: String = "off", usageAnalytics: Bool = false) {
         self.yolo = yolo
         self.yoloAsksAfterReading = yoloAsksAfterReading
         self.autoApproveMedium = autoApproveMedium
@@ -29,6 +30,7 @@ public struct AppSettingsSnapshot: Sendable, Equatable {
         self.apiBaseURL = apiBaseURL
         self.engagementActive = engagementActive
         self.engagementSummary = engagementSummary
+        self.usageAnalytics = usageAnalytics
     }
 }
 
@@ -39,6 +41,7 @@ public protocol AppControls: Sendable {
     func settings() async -> AppSettingsSnapshot
     func setReadAloud(_ enabled: Bool) async
     func setAutoConnect(_ enabled: Bool) async
+    func setUsageAnalytics(_ enabled: Bool) async
     func setYolo(_ enabled: Bool) async
     func setYoloAsksAfterReading(_ enabled: Bool) async
     func setAutoApproveMedium(_ enabled: Bool) async

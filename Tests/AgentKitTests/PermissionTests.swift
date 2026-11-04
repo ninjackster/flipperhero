@@ -9,6 +9,7 @@ actor FakeAppControls: AppControls {
     func settings() -> AppSettingsSnapshot { state }
     func setReadAloud(_ enabled: Bool) { state.readAloud = enabled }
     func setAutoConnect(_ enabled: Bool) { state.autoConnect = enabled }
+    func setUsageAnalytics(_ enabled: Bool) { state.usageAnalytics = enabled }
     func setYolo(_ enabled: Bool) { state.yolo = enabled }
     func setYoloAsksAfterReading(_ enabled: Bool) { state.yoloAsksAfterReading = enabled }
     func setAutoApproveMedium(_ enabled: Bool) { state.autoApproveMedium = enabled }

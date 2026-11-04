@@ -71,6 +71,9 @@ public enum RiskAssessor {
             return .init(level: .low, reasons: [L("read-only")])
         case .setReadAloud, .setAutoConnect:
             return .init(level: .low, reasons: [L("changes a harmless app preference")])
+        case .setUsageAnalytics(let enabled):
+            return .init(level: enabled ? .medium : .low,
+                reasons: [L("Send screen names and usage events to Rybbit. No chat, photos, files or API keys.")])
         case .restartDevice:
             return .init(level: .medium, reasons: [L("restarts the Flipper; whatever runs on it stops and the connection drops briefly")])
         case .setModel, .setProvider:

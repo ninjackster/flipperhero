@@ -109,6 +109,24 @@ final class FlipperHeroUITests: XCTestCase {
         XCTAssertTrue(header.label.contains("YOLO"), "YOLO badge in the header")
     }
 
+    func testUsageAnalyticsCanBeEnabledAndDisabled() {
+        let app = launch(tab: 4)
+        let toggle = app.switches["Share usage statistics"]
+        for _ in 0..<8 where !toggle.exists || !toggle.isHittable { app.swipeUp() }
+        XCTAssertTrue(toggle.waitForExistence(timeout: 3))
+        // Leave the preference disabled even when a previous UI run enabled it.
+        if toggle.value as? String == "1" { toggle.switches.firstMatch.tap() }
+        XCTAssertEqual(toggle.value as? String, "0")
+        let screenshot = XCTAttachment(screenshot: app.screenshot())
+        screenshot.name = "Optional usage analytics disclosure"
+        screenshot.lifetime = .keepAlways
+        add(screenshot)
+        toggle.switches.firstMatch.tap()
+        XCTAssertEqual(toggle.value as? String, "1")
+        toggle.switches.firstMatch.tap()
+        XCTAssertEqual(toggle.value as? String, "0")
+    }
+
     func testPermissionRequestCanBeDenied() {
         let app = launch(tab: 3, ["FH_DEMO_APPROVAL": "1"])
         let deny = app.buttons["Deny"]

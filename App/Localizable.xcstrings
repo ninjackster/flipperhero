@@ -1,6 +1,291 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "Usage analytics": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Usage analytics"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nutzungsstatistik"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Statistiques d’utilisation"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Estadísticas de uso"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Estatísticas de uso"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Statistiche di utilizzo"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Статистика использования"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Статистика використання"
+          }
+        },
+        "pl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Statystyki użytkowania"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kullanım istatistikleri"
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "إحصاءات الاستخدام"
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "उपयोग के आँकड़े"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "使用统计"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "利用統計"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "사용 통계"
+          }
+        }
+      }
+    },
+    "Share usage statistics": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Share usage statistics"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nutzungsstatistik teilen"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Partager les statistiques d’utilisation"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Compartir estadísticas de uso"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Compartilhar estatísticas de uso"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Condividi statistiche di utilizzo"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Делиться статистикой использования"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ділитися статистикою використання"
+          }
+        },
+        "pl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Udostępniaj statystyki użytkowania"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kullanım istatistiklerini paylaş"
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "مشاركة إحصاءات الاستخدام"
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "उपयोग के आँकड़े साझा करें"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "分享使用统计"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "利用統計を共有"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "사용 통계 공유"
+          }
+        }
+      }
+    },
+    "Optional Rybbit analytics at stats.2342.dev help us improve FlipperHero. We send screen names, basic usage events, app version and edition. A random session ID resets when the app restarts. Rybbit also receives your IP address and iOS version. Chat text, photos, Flipper names, files and API keys stay out of analytics. Off by default; change this anytime.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Optional Rybbit analytics at stats.2342.dev help us improve FlipperHero. We send screen names, basic usage events, app version and edition. A random session ID resets when the app restarts. Rybbit also receives your IP address and iOS version. Chat text, photos, Flipper names, files and API keys stay out of analytics. Off by default; change this anytime."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Optionale Rybbit-Statistiken auf stats.2342.dev helfen uns, FlipperHero zu verbessern. Wir senden Bildschirmnamen, grundlegende Nutzungsereignisse, App-Version und Edition. Eine zufällige Sitzungs-ID wird bei jedem App-Neustart erneuert. Rybbit erhält auch deine IP-Adresse und iOS-Version. Chat-Texte, Fotos, Flipper-Namen, Dateien und API-Schlüssel werden nicht erfasst. Standardmäßig ausgeschaltet; jederzeit änderbar."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Les statistiques Rybbit facultatives sur stats.2342.dev nous aident à améliorer FlipperHero. Nous envoyons les noms des écrans, les événements d’utilisation de base, la version et l’édition de l’application. Un identifiant de session aléatoire change à chaque redémarrage. Rybbit reçoit aussi votre adresse IP et votre version iOS. Les conversations, photos, noms du Flipper, fichiers et clés API sont exclus. Désactivé par défaut ; modifiable à tout moment."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Las estadísticas opcionales de Rybbit en stats.2342.dev nos ayudan a mejorar FlipperHero. Enviamos nombres de pantallas, eventos básicos de uso, versión y edición de la app. Un identificador aleatorio de sesión cambia al reiniciar la app. Rybbit también recibe tu dirección IP y versión de iOS. No se incluyen chats, fotos, nombres del Flipper, archivos ni claves API. Desactivado por defecto; puedes cambiarlo cuando quieras."
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "As estatísticas opcionais do Rybbit em stats.2342.dev ajudam a melhorar o FlipperHero. Enviamos nomes de telas, eventos básicos de uso, versão e edição do app. Um ID aleatório de sessão muda ao reiniciar o app. O Rybbit também recebe seu endereço IP e versão do iOS. Chats, fotos, nomes do Flipper, arquivos e chaves de API ficam de fora. Desativado por padrão; altere quando quiser."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Le statistiche facoltative Rybbit su stats.2342.dev ci aiutano a migliorare FlipperHero. Inviamo nomi delle schermate, eventi di utilizzo di base, versione ed edizione dell’app. Un ID di sessione casuale cambia a ogni riavvio. Rybbit riceve anche indirizzo IP e versione iOS. Chat, foto, nomi del Flipper, file e chiavi API sono esclusi. Disattivato per impostazione predefinita; modificabile in qualsiasi momento."
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Необязательная аналитика Rybbit на stats.2342.dev помогает улучшать FlipperHero. Мы отправляем названия экранов, базовые события использования, версию и редакцию приложения. Случайный ID сеанса меняется при каждом перезапуске. Rybbit также получает IP-адрес и версию iOS. Тексты чатов, фотографии, имена Flipper, файлы и API-ключи не передаются. По умолчанию выключено; настройку можно изменить в любое время."
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Необов’язкова аналітика Rybbit на stats.2342.dev допомагає покращувати FlipperHero. Ми надсилаємо назви екранів, базові події використання, версію та редакцію застосунку. Випадковий ID сеансу змінюється після кожного перезапуску. Rybbit також отримує IP-адресу й версію iOS. Чати, фото, назви Flipper, файли та API-ключі не передаються. Типово вимкнено; налаштування можна змінити будь-коли."
+          }
+        },
+        "pl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Opcjonalne statystyki Rybbit na stats.2342.dev pomagają ulepszać FlipperHero. Wysyłamy nazwy ekranów, podstawowe zdarzenia użytkowania, wersję i edycję aplikacji. Losowy ID sesji zmienia się przy każdym ponownym uruchomieniu. Rybbit otrzymuje też adres IP i wersję iOSa. Czaty, zdjęcia, nazwy Flippera, pliki i klucze API są pomijane. Domyślnie wyłączone; ustawienie można zmienić w dowolnej chwili."
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "stats.2342.dev üzerindeki isteğe bağlı Rybbit istatistikleri FlipperHero uygulamasını geliştirmemize yardımcı olur. Ekran adları, temel kullanım olayları, uygulama sürümü ve edisyonu gönderilir. Rastgele oturum kimliği her yeniden başlatmada değişir. Rybbit ayrıca IP adresinizi ve iOS sürümünüzü alır. Sohbetler, fotoğraflar, Flipper adları, dosyalar ve API anahtarları gönderilmez. Varsayılan olarak kapalıdır; istediğiniz zaman değiştirebilirsiniz."
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "تساعدنا إحصاءات Rybbit الاختيارية على stats.2342.dev في تحسين FlipperHero. نرسل أسماء الشاشات وأحداث الاستخدام الأساسية وإصدار التطبيق ونسخته. يتغير معرّف الجلسة العشوائي عند كل إعادة تشغيل. يتلقى Rybbit أيضًا عنوان IP وإصدار iOS. لا تُرسل نصوص الدردشة أو الصور أو أسماء Flipper أو الملفات أو مفاتيح API. الميزة متوقفة افتراضيًا ويمكن تغييرها في أي وقت."
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "stats.2342.dev पर वैकल्पिक Rybbit आँकड़े FlipperHero को बेहतर बनाने में मदद करते हैं। हम स्क्रीन के नाम, बुनियादी उपयोग घटनाएँ, ऐप संस्करण और एडिशन भेजते हैं। ऐप दोबारा शुरू होने पर रैंडम सत्र ID बदल जाती है। Rybbit को आपका IP पता और iOS संस्करण भी मिलता है। चैट, फ़ोटो, Flipper के नाम, फ़ाइलें और API कुंजियाँ नहीं भेजी जातीं। यह सुविधा डिफ़ॉल्ट रूप से बंद है; कभी भी बदल सकते हैं।"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "stats.2342.dev 上的可选 Rybbit 统计帮助我们改进 FlipperHero。我们发送页面名称、基本使用事件、应用版本及版本类型。随机会话 ID 在每次应用重启时更换。Rybbit 还会收到您的 IP 地址和 iOS 版本。不会收集聊天文字、照片、Flipper 名称、文件或 API 密钥。默认关闭，可随时更改。"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "stats.2342.devの任意のRybbit統計は、FlipperHeroの改善に役立ちます。画面名、基本的な利用イベント、アプリのバージョンとエディションを送信します。ランダムなセッションIDはアプリの再起動ごとに変更されます。RybbitはIPアドレスとiOSのバージョンも受信します。チャット、写真、Flipper名、ファイル、APIキーは収集しません。初期設定はオフで、いつでも変更できます。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "stats.2342.dev의 선택적 Rybbit 통계는 FlipperHero 개선에 도움이 됩니다. 화면 이름, 기본 사용 이벤트, 앱 버전 및 에디션을 보냅니다. 무작위 세션 ID는 앱을 다시 시작할 때마다 변경됩니다. Rybbit는 IP 주소와 iOS 버전도 받습니다. 채팅 내용, 사진, Flipper 이름, 파일 및 API 키는 수집하지 않습니다. 기본적으로 꺼져 있으며 언제든지 변경할 수 있습니다."
+          }
+        }
+      }
+    },
     "Choose a model with tool calling. Images require vision support.": {
       "extractionState": "manual",
       "localizations": {

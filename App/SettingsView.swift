@@ -67,6 +67,12 @@ struct SettingsView: View {
                     Link("Privacy Policy", destination: URL(string: "https://github.com/flipper-hero/ios-app/blob/main/PRIVACY.md")!)
                     Link("Support on GitHub", destination: URL(string: "https://github.com/flipper-hero/ios-app/issues")!)
                 }
+                Section {
+                    Toggle("Share usage statistics", isOn: Binding(
+                        get: { model.usageAnalyticsEnabled }, set: { model.setUsageAnalytics($0) }))
+                } header: { Text("Usage analytics") } footer: {
+                    Text("Optional Rybbit analytics at stats.2342.dev help us improve FlipperHero. We send screen names, basic usage events, app version and edition. A random session ID resets when the app restarts. Rybbit also receives your IP address and iOS version. Chat text, photos, Flipper names, files and API keys stay out of analytics. Off by default; change this anytime.")
+                }
             }
             .themedList()
             .brandedNavigation("Settings")

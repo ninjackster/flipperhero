@@ -64,6 +64,49 @@ final class AppModel {
 
     nonisolated static let autoApproveKey = "autoApproveMedium"
     nonisolated static let autoConnectKey = "autoConnect"
+    nonisolated static let usageAnalyticsKey = "usageAnalytics"
+    private(set) var usageAnalyticsEnabled = UserDefaults.standard.bool(forKey: AppModel.usageAnalyticsKey)
+    private let usageAnalytics = RybbitUsageAnalytics(
+        siteID: "60", version: Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "1.0",
+        edition: {
+            #if FLIPPERHERO_STORE
+            return "store"
+            #else
+            return "full"
+            #endif
+        }(), enabled: UserDefaults.standard.bool(forKey: AppModel.usageAnalyticsKey))
+    private var analyticsLaunched = false
+
+    func setUsageAnalytics(_ enabled: Bool) {
+        usageAnalyticsEnabled = enabled
+        UserDefaults.standard.set(enabled, forKey: Self.usageAnalyticsKey)
+        Task {
+            await usageAnalytics.setEnabled(enabled)
+            if enabled {
+                await trackUsageEvent(.app_open)
+                await trackUsageScreen()
+            }
+        }
+    }
+
+    func trackAppOpen() {
+        guard !analyticsLaunched else { return }
+        analyticsLaunched = true
+        Task { await trackUsageEvent(.app_open) }
+    }
+
+    func trackUsageScreen() async {
+        #if !DEBUG
+        guard RybbitUsageAnalytics.Screen.allCases.indices.contains(selectedTab) else { return }
+        await usageAnalytics.screen(RybbitUsageAnalytics.Screen.allCases[selectedTab])
+        #endif
+    }
+
+    private func trackUsageEvent(_ event: RybbitUsageAnalytics.Event) async {
+        #if !DEBUG
+        await usageAnalytics.event(event)
+        #endif
+    }
     nonisolated static let speakRepliesKey = "speakReplies"
     nonisolated static let knownDevicesKey = "knownFlipperIDs"
     nonisolated static let lastDeviceKey = "lastFlipperID"
@@ -153,7 +196,8 @@ final class AppModel {
             model: currentModel, apiKeyStored: hasAPIKey && !isDemo,
             provider: aiProvider.rawValue, apiBaseURL: aiSettings.baseURL,
             engagementActive: engagement.active,
-            engagementSummary: engagement.active ? engagement.profile.summary : "off"
+            engagementSummary: engagement.active ? engagement.profile.summary : "off",
+            usageAnalytics: usageAnalyticsEnabled
         )
     }
 
@@ -525,9 +569,11 @@ final class AppModel {
                 Task { @MainActor in self?.apply(event) }
             }
             chat.append(ChatEntry(kind: .assistant, text: answer))
+            await trackUsageEvent(.agent_completed)
             if speakReplies { speaker.speak(answer) }
         } catch {
             chat.append(ChatEntry(kind: .error, text: "\(error)"))
+            await trackUsageEvent(.agent_failed)
         }
     }
 
