@@ -43,7 +43,7 @@ ufbt            # builds dist/capture_bridge.fap
 ufbt launch     # installs and runs on a USB-connected Flipper
 ```
 
-Built and verified against SDK 1.5.1 (Momentum, API 87.1) with `ufbt` on macOS + Xcode 27.1.
+Built and verified against the Momentum mntm-012 SDK, API 87.1 with `ufbt` on macOS + Xcode 27.1.
 
 ## Phone side (not wired yet)
 

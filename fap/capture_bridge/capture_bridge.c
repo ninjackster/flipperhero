@@ -83,7 +83,7 @@ static void bridge_overrun_callback(void* context) {
 }
 
 static void bridge_set_result(CaptureBridgeApp* app, const char* text) {
-    furi_mutex_acquire(app->state_mutex, FURI_TIMEOUT_RELAXED);
+    furi_mutex_acquire(app->state_mutex, FuriWaitForever);
     snprintf(app->result, sizeof(app->result), "%s", text);
     furi_mutex_release(app->state_mutex);
 }
@@ -197,11 +197,11 @@ static void bridge_capture(CaptureBridgeApp* app, uint32_t freq_hz, uint32_t win
 static int32_t bridge_worker_thread(void* context) {
     CaptureBridgeApp* app = context;
     while(!app->exit_requested) {
-        if(furi_semaphore_acquire(app->cmd_sem, FURI_SEMAPHORE_WAIT_FOREVER) != FuriStatusOk) continue;
+        if(furi_semaphore_acquire(app->cmd_sem, FuriWaitForever) != FuriStatusOk) continue;
         if(app->exit_requested) break;
 
         char cmd[CMD_LEN];
-        furi_mutex_acquire(app->state_mutex, FURI_TIMEOUT_RELAXED);
+        furi_mutex_acquire(app->state_mutex, FuriWaitForever);
         snprintf(cmd, sizeof(cmd), "%s", app->pending_cmd);
         furi_mutex_release(app->state_mutex);
 
@@ -220,7 +220,7 @@ static int32_t bridge_worker_thread(void* context) {
 /* -------------------------------------------------------------------- rpc --- */
 
 static void bridge_post(CaptureBridgeApp* app, const char* cmd) {
-    furi_mutex_acquire(app->state_mutex, FURI_TIMEOUT_RELAXED);
+    furi_mutex_acquire(app->state_mutex, FuriWaitForever);
     snprintf(app->pending_cmd, sizeof(app->pending_cmd), "%s", cmd);
     furi_mutex_release(app->state_mutex);
     furi_semaphore_release(app->cmd_sem);
@@ -245,7 +245,7 @@ static bool bridge_handle_command(CaptureBridgeApp* app, const char* cmd) {
     }
     if(!strcmp(cmd, "result")) {
         char result[RESULT_LEN];
-        furi_mutex_acquire(app->state_mutex, FURI_TIMEOUT_RELAXED);
+        furi_mutex_acquire(app->state_mutex, FuriWaitForever);
         snprintf(result, sizeof(result), "%s", app->result);
         furi_mutex_release(app->state_mutex);
         bridge_reply(app, result);
@@ -256,7 +256,7 @@ static bool bridge_handle_command(CaptureBridgeApp* app, const char* cmd) {
             bridge_reply(app, "capturing");
         } else {
             char result[RESULT_LEN];
-            furi_mutex_acquire(app->state_mutex, FURI_TIMEOUT_RELAXED);
+            furi_mutex_acquire(app->state_mutex, FuriWaitForever);
             snprintf(result, sizeof(result), "%s", app->result);
             furi_mutex_release(app->state_mutex);
             bridge_reply(app, strcmp(result, "idle") ? result : "idle");
@@ -308,7 +308,7 @@ static void bridge_rpc_callback(const RpcAppSystemEvent* event, void* context) {
 static void bridge_draw_callback(Canvas* canvas, void* context) {
     CaptureBridgeApp* app = context;
     char line[RESULT_LEN];
-    furi_mutex_acquire(app->state_mutex, FURI_TIMEOUT_RELAXED);
+    furi_mutex_acquire(app->state_mutex, FuriWaitForever);
     snprintf(line, sizeof(line), "%s", app->result);
     furi_mutex_release(app->state_mutex);
 
@@ -322,7 +322,7 @@ static void bridge_draw_callback(Canvas* canvas, void* context) {
 
 static void bridge_input_callback(InputEvent* event, void* context) {
     CaptureBridgeApp* app = context;
-    (void)furi_message_queue_put(app->input_queue, event, FURI_TIMEOUT_NO_WAIT);
+    (void)furi_message_queue_put(app->input_queue, event, 0);
 }
 
 /* ------------------------------------------------------------------- main --- */
@@ -334,7 +334,8 @@ static CaptureBridgeApp* bridge_alloc(void) {
     app->state_mutex = furi_mutex_alloc(FuriMutexTypeNormal);
     app->cmd_sem = furi_semaphore_alloc(1, 0);
     app->rx_worker = subghz_worker_alloc();
-    subghz_worker_set_pair_callback(app->rx_worker, bridge_pair_callback, app);
+    subghz_worker_set_pair_callback(app->rx_worker, bridge_pair_callback);
+    subghz_worker_set_context(app->rx_worker, app);
     subghz_worker_set_overrun_callback(app->rx_worker, bridge_overrun_callback);
     app->worker = furi_thread_alloc();
     furi_thread_set_name(app->worker, "CaptureBridge");
