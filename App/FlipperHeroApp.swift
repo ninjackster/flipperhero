@@ -35,7 +35,7 @@ struct FlipperHeroApp: App {
 
     /// Debug builds understand a few environment variables for screenshots and hardware tests:
     /// FH_DEMO=1 (sample data, no Flipper needed), FH_DEMO_APPROVAL=1, FH_DEMO_YOLO=1,
-    /// FH_DEMO_ACTIVITY=1 (with FH_DEMO, starts a sample Live Activity), FH_TAB=0..4 (start tab),
+    /// FH_DEMO_ACTIVITY=1 (with FH_DEMO, starts a sample Live Activity), FH_TAB=0..5 (start tab),
     /// FH_KEYCHAIN_SELFTEST=1.
     private func launch() {
         model.trackAppOpen()
@@ -65,6 +65,7 @@ struct RootView: View {
             FilesView().tabItem { Label("Files", systemImage: "folder") }.tag(2)
             ChatView().tabItem { Label("Agent", systemImage: "bubble.left.and.text.bubble.right") }.tag(3)
             SettingsView().tabItem { Label("Settings", systemImage: "gearshape") }.tag(4)
+            CaptureView().tabItem { Label("Capture", systemImage: "dot.radiowaves.left.and.right") }.tag(5)
         }
         .task(id: model.selectedTab) { await model.trackUsageScreen() }
     }

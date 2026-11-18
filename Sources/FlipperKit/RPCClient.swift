@@ -29,6 +29,8 @@ public actor FlipperRPCClient {
 #if !FLIPPERHERO_STORE
     var marauderSessionActive = false
 #endif
+    /// One `capture_bridge` RPC session at a time; see CaptureBridge.swift.
+    var captureSessionActive = false
 
     /// Messages that do not answer a pending request. Each call returns an independent stream.
     public func unsolicitedMessages(bufferLimit: Int = 4) -> AsyncStream<PB_Main> {
