@@ -20,6 +20,8 @@ One ASCII line per exchange, newline terminated.
 | `quit` | `bye`, then the app exits |
 | anything else | `err unknown` |
 
+Commands are newline-framed; the device trims trailing whitespace before dispatching.
+
 A finished capture is also pushed unprompted as `done <result>`.
 
 `status` and `result` return `err ...` lines verbatim, so the phone can show a real reason

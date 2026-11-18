@@ -233,7 +233,16 @@ static void bridge_reply(CaptureBridgeApp* app, const char* text) {
     furi_string_free(out);
 }
 
-static bool bridge_handle_command(CaptureBridgeApp* app, const char* cmd) {
+static bool bridge_handle_command(CaptureBridgeApp* app, const char* raw) {
+    // The phone frames commands with a newline. `rx` would survive a prefix compare, but a
+    // strcmp on "ping"/"result" would not, so trim before dispatching.
+    char cmd[CMD_LEN];
+    snprintf(cmd, sizeof(cmd), "%s", raw);
+    size_t len = strlen(cmd);
+    while(len > 0 && strchr(" \t\r\n", cmd[len - 1]) != NULL) {
+        cmd[--len] = '\0';
+    }
+
     if(!strcmp(cmd, "ping")) {
         bridge_reply(app, "pong");
         return true;
