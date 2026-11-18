@@ -119,7 +119,7 @@ extension FlipperRPCClient {
         defer { captureSessionActive = false }
 
         let inbox = CaptureLineInbox()
-        let pump = Self.pumpUnsolicited(into: inbox)
+        let pump = pumpUnsolicited(into: inbox)
         defer { pump.cancel() }
 
         do {
@@ -166,7 +166,7 @@ extension FlipperRPCClient {
     /// Cheap liveness check: proves the .fap is installed and speaking the protocol.
     public func captureBridgePing() async throws -> Bool {
         let inbox = CaptureLineInbox()
-        let pump = Self.pumpUnsolicited(into: inbox)
+        let pump = pumpUnsolicited(into: inbox)
         defer { pump.cancel() }
         try await startCaptureBridge()
         defer { Task { try? await self.exitApp() } }
