@@ -1,0 +1,14 @@
+App(
+    appid="capture_bridge",
+    name="Capture Bridge",
+    apptype=FlipperAppType.EXTERNAL,
+    entry_point="capture_bridge_app",
+    requires=["gui", "storage"],
+    stack_size=8 * 1024,
+    order=40,
+    fap_version=(0, 1),
+    fap_category="Tools",
+    fap_description="Raw Sub-GHz capture driven from a phone over RPC app data exchange.",
+    fap_author="Jaime Murillo",
+    sources=["*.c"],
+)
