@@ -42,7 +42,7 @@
 #define DEFAULT_FREQ_HZ   433920000UL
 #define DEFAULT_WINDOW_MS 3000UL
 #define CAPTURE_DIR       "/ext/subghz"
-#define RESULT_LEN        96
+#define RESULT_LEN        128
 #define CMD_LEN           64
 #define WORKER_STACK      4096
 
